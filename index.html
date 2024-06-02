@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Qualifications</title>
+</head>
+<body>
+    <h1>Educational Qualifications in Pakistan</h1>
+    <ul id="qualificationList">
+        <h2>Student Scores</h2>
+        
+    </ul>
+
+    <h2>City Names</h2>
+    <div id="citiesList"></div>
+    <div id="selectedCitiesList"></div>
+
+    <h2>Join Array Elements</h2>
+    <div id="originalArray"></div>
+    <div id="joinedString"></div>
+    <h2>FIFO Queue</h2>
+    <label for="valueInput">Enter a value:</label>
+    <input type="text" id="valueInput" placeholder="e.g. 42">
+    <button onclick="enqueue()">Enqueue</button>
+    <button onclick="dequeue()">Dequeue</button>
+    <div id="queueDisplay"></div>
+    <div id="dequeueResult"></div>
+
+    <script>
+        
+        let qualifications = ["SSC", "HSC", "BCS", "BS", "BCOM", "MS", "M. Phil.", "PhD"];
+
+        
+        let qualificationList = document.getElementById("qualificationList");
+
+        qualifications.forEach(function(qualification) {
+            
+            let listItem = document.createElement("li");
+          
+            listItem.textContent = qualification;
+        
+            qualificationList.appendChild(listItem);
+        });
+         
+        let studentNames = ["micheal", "john", "tony"];
+let studentScore = [320, 230, 480];
+let totalMarks = 500;
+
+for (let i = 0; i < studentNames.length; i++) {
+    let percentage = (studentScore[i] / totalMarks) * 100;
+    document.write(studentNames[i] + ": " + percentage + "%<br>");
+}
+let colors = ["red", "blue", "green"];
+
+
+document.write("<b>Original Array:</b> " + colors.join(", ") + "<br>");
+
+let colorToAddAtBeginning = prompt("Enter the color you want to add to the beginning:");
+colors.unshift(colorToAddAtBeginning);
+document.write("<b>Array after adding color at the beginning:</b> " + colors.join(", ") + "<br>");
+let colorToAddAtEnd = prompt("Enter the color you want to add to the end:");
+colors.push(colorToAddAtEnd);
+document.write("<b>Array after adding color at the end:</b> " + colors.join(", ") + "<br>");
+colors.unshift("purple", "yellow");
+document.write("<b>Array after adding two more colors at the beginning:</b> " + colors.join(", ") + "<br>");
+colors.shift();
+document.write("<b>Array after deleting the first color:</b> " + colors.join(", ") + "<br>");
+colors.pop();
+document.write("<b>Array after deleting the last color:</b> " + colors.join(", ") + "<br>");
+let indexToAddColor = prompt("Enter the index where you want to add a color:");
+let colorToAddAtIndex = prompt("Enter the color you want to add:");
+colors.splice(indexToAddColor, 0, colorToAddAtIndex);
+document.write("<b>Array after adding color at index " + indexToAddColor + ":</b> " + colors.join(", ") + "<br>");
+let indexToDeleteColor = prompt("Enter the index from where you want to delete color(s):");
+let numberOfColorsToDelete = prompt("Enter the number of colors you want to delete:");
+colors.splice(indexToDeleteColor, numberOfColorsToDelete);
+document.write("<b>Array after deleting color(s) from index " + indexToDeleteColor + ":</b> " + colors.join(", ") + "<br>");
+
+        function sortScores() {
+            // Get user input
+            var input = document.getElementById("scoresInput").value;
+
+            // Split input into an array of scores
+            var scores = input.split(',').map(Number);
+
+            // Sort the array in ascending order
+            scores.sort(function(a, b) {
+                return a - b;
+            });
+
+            // Display the sorted scores
+            document.getElementById("sortedScores").innerHTML = "Sorted Scores: " + scores.join(', ');
+        }
+
+
+   
+       
+        var cities = ["Karachi", "Lahore", "islamabad", "quetta", ];
+
+        var selectedCities = cities.slice(0, 3); 
+
+       
+        document.getElementById("citiesList").innerHTML = "Cities: " + cities.join(', ');
+
+        document.getElementById("selectedCitiesList").innerHTML = "Selected Cities: " + selectedCities.join(', ');
+ 
+
+        var arr = ["This ", " is ", " my ", " cat"];
+
+
+document.getElementById("originalArray").innerHTML = "Original Array: " + JSON.stringify(arr);
+
+
+var joinedString = arr.join('');
+
+document.getElementById("joinedString").innerHTML = "Joined String: " + joinedString;
+  </script>
+</body>
+</html>
+
+
